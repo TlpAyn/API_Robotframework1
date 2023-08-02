@@ -17,6 +17,7 @@ TC_01_Get_request
     ${Get_response}=  GET On Session  API_Testing   api/studentsDetails/100011
     ${json_response}=  Set Variable    ${Get_response.json()}
 
+
     Log To Console   ${json_response}
 
     

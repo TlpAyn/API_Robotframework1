@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20230803 10:05:01.721" rpa="false" schemaversion="4">
+<suite id="s1" name="petStore" source="C:\Users\talipa\PycharmProjects\API_Robotframework1\youTube\petStore.robot">
+<test id="s1-t1" name="TC1:All the Animals(GET)" line="12">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230803 10:05:01.889" level="INFO">Creating Session using : alias=mysession, url=https://petstore.swagger.io, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230803 10:05:01.888" endtime="20230803 10:05:01.899"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/v2/pet/findByStatus?status=available</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230803 10:05:01.900" level="WARN">You might have an = symbol in url. You better place 'url=' before, example: 'url=/your-url/foo?param=a' or use '/your-url/foo  params=param=a' or escape it</msg>
+<msg timestamp="20230803 10:05:01.901" level="FAIL">TypeError: RequestsOnSessionKeywords.get_on_session() missing 1 required positional argument: 'url'</msg>
+<status status="FAIL" starttime="20230803 10:05:01.899" endtime="20230803 10:05:01.902"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230803 10:05:01.902" endtime="20230803 10:05:01.902"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230803 10:05:01.903" endtime="20230803 10:05:01.903"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230803 10:05:01.903" endtime="20230803 10:05:01.903"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230803 10:05:01.903" endtime="20230803 10:05:01.904"/>
+</kw>
+<status status="FAIL" starttime="20230803 10:05:01.887" endtime="20230803 10:05:01.904">TypeError: RequestsOnSessionKeywords.get_on_session() missing 1 required positional argument: 'url'</status>
+</test>
+<status status="FAIL" starttime="20230803 10:05:01.724" endtime="20230803 10:05:01.904"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="petStore">petStore</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230803 10:05:01.900" level="WARN">You might have an = symbol in url. You better place 'url=' before, example: 'url=/your-url/foo?param=a' or use '/your-url/foo  params=param=a' or escape it</msg>
+</errors>
+</robot>
